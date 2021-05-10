@@ -1,0 +1,25 @@
+{
+  "name": "ol-federated",
+  "version": "6.5.0",
+  "description": "A third-party build of OpenLayers as Webpack federated modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-ol-src": "[ ! -f ./node_modules/ol-src/build/info.json ] && ( export NODE_PATH=$(pwd)/node_modules && cd ./node_modules/ol-src && npm ci && npm run build-package && node tasks/generate-info; cd ../../ ) || true",
+    "build": "npm run build-ol-src && webpack --config webpack.config.js --mode production",
+    "dev": "npm run build-ol-src && webpack-dev-server --host 0.0.0.0 --progress --config webpack.config.js --mode development"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "copy-webpack-plugin": "^8.1.1",
+    "ol": "^6.5.0",
+    "ol-mapbox-style": "^6.1.1",
+    "ol-src": "https://github.com/openlayers/openlayers/archive/refs/tags/v6.5.0.tar.gz",
+    "pbf": "3.2.1",
+    "rbush": "^3.0.1",
+    "webpack": "^5.36.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^4.0.0-beta.2"
+  }
+}
