@@ -10,7 +10,8 @@
       "with-ol-federated",
       "with-simple-webpack-bundling",
       "with-ol-externalized-to-static-ol-dot-js",
-      "with-webpack-naive-federation"
+      "with-webpack-naive-federation",
+      "with-webpack-naive-federation-fewer-chunks"
     ]
   },
   "devDependencies": {
