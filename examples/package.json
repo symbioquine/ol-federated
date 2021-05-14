@@ -1,0 +1,27 @@
+{
+  "name": "ol-federated-examples-root",
+  "version": "0.0.0",
+  "description": "Examples",
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "with-ol-federated",
+      "with-simple-webpack-bundling",
+      "with-ol-externalized-to-static-ol-dot-js",
+      "with-webpack-naive-federation"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "5.3.0",
+    "cross-spawn": "7.0.3",
+    "get-port": "^5.1.1",
+    "glob": "^7.1.7",
+    "lerna": "3.22.1"
+  },
+  "scripts": {
+    "build": "lerna run --parallel build",
+    "test": "rm -f **/perfData/{*.json,*.png} && jest test/index.spec.js --maxWorkers=1"
+  }
+}

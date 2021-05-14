@@ -30,12 +30,13 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: '../dist/*.js' },
-        { from: '../dist/*.css' },
+        { from: `${__dirname}/../../dist/*.js` },
+        { from: `${__dirname}/../../dist/*.css` },
+        { from: `${__dirname}/../test/sentinel.html` },
       ],
     }),
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: `${__dirname}/public/index.html`,
     }),
   ],
 };

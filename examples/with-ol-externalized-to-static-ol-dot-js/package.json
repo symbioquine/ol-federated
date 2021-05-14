@@ -1,12 +1,13 @@
 {
   "name": "ol-federated-example-static-ol-dot-js",
   "version": "6.5.0",
-  "description": "A third-party build of OpenLayers as Webpack federated modules",
+  "description": "An example of including OpenLayers via the legacy ol.js static build",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js --mode production",
-    "dev": "webpack-dev-server --host 0.0.0.0 --progress --config webpack.config.js --mode production --compress"
+    "test": "jest --config $(pwd)/../test/jest.config.js",
+    "build": "webpack --mode production",
+    "dev": "webpack serve $([ -n \"$TEST_PORT_NUM\" ] && echo \"--port $TEST_PORT_NUM\") --mode development",
+    "serve-dist": "node ../test/static-server.js"
   },
   "author": "",
   "license": "BSD-2-Clause",
@@ -14,12 +15,17 @@
     "bundle-loader": "^0.5.6",
     "copy-webpack-plugin": "^8.1.1",
     "html-webpack-plugin": "^5.3.1",
+    "jest": "^26.6.3",
+    "jest-puppeteer": "^5.0.3",
+    "puppeteer": "^9.1.1",
     "save-remote-file-webpack-plugin": "^1.1.0",
+    "uuid": "^3.4.0",
     "webpack": "^5.36.0",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^4.0.0-beta.2"
   },
   "dependencies": {
+    "compression": "^1.7.4",
     "ol": "^6.5.0"
   }
 }
